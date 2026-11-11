@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff1f5">
+<meta name="description" content="Kejutan ulang tahun kecil penuh cinta dari Mas Rafi.">
+<title>A Little Birthday Surprise</title>
+<style>
+:root{--pink:#e98da8;--deep:#a94e70;--cream:#fffaf5;--ink:#573b47;--soft:#fce5ec}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#fff8f3,#ffeef4 55%,#fff7f0);color:var(--ink);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+button,input{font:inherit}.page{min-height:100vh;display:none;align-items:center;justify-content:center;padding:28px 18px}.page.active{display:flex}.panel{width:min(680px,100%);text-align:center;background:#ffffffc9;border:1px solid #fff;box-shadow:0 18px 60px #b66d8520;border-radius:28px;padding:clamp(26px,6vw,54px);backdrop-filter:blur(8px)}
+.eyebrow{font:600 11px/1.4 Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--deep)}h1,h2{font-weight:400;color:#8e4965}h1{font-size:clamp(38px,8vw,68px);line-height:1.04;margin:15px 0}h2{font-size:clamp(29px,6vw,43px);margin:12px 0 20px}.lead{font-size:18px;line-height:1.8;color:#795765}.small{font:13px/1.7 Arial,sans-serif;color:#9b7887}.btn{border:0;border-radius:999px;padding:14px 25px;background:linear-gradient(120deg,#e99ab2,#c96f91);color:white;cursor:pointer;box-shadow:0 8px 22px #c96f9140;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.03)}.btn.secondary{background:#fff;color:var(--deep);border:1px solid #f0c7d4;box-shadow:none}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.envelope{width:150px;height:105px;margin:30px auto 24px;background:#f3b7c9;border-radius:9px;position:relative;box-shadow:0 12px 25px #a94e7030;cursor:pointer}.envelope:before{content:"";position:absolute;inset:0;background:#f8d3de;clip-path:polygon(0 0,50% 58%,100% 0);border-radius:9px 9px 0 0}.envelope:after{content:"♥";position:absolute;left:calc(50% - 13px);top:36px;color:#b75c7e;font-size:26px}
+.heart{font-size:35px;color:#d77e9d;animation:pulse 1.5s infinite}@keyframes pulse{50%{transform:scale(1.18)}}.divider{width:60px;height:1px;background:#e9b6c7;margin:25px auto}.letter{text-align:left;font-size:17px;line-height:1.95;white-space:pre-line}.signature{text-align:right;color:#a65375;font-style:italic;font-size:21px;margin-top:25px}.memory{background:#fff7fa;border-radius:18px;padding:20px;margin:22px 0;font-size:16px;line-height:1.8}.flower{position:fixed;top:-30px;pointer-events:none;z-index:5;animation:fall linear forwards;opacity:.75}@keyframes fall{to{transform:translateY(110vh) rotate(500deg);opacity:0}}
+.editor{display:grid;gap:12px;text-align:left;margin-top:24px}.editor label{font:12px Arial,sans-serif;color:#87596c}.editor input,.editor textarea{width:100%;padding:12px 14px;border:1px solid #edcbd6;border-radius:12px;background:#fffdfd;color:var(--ink);outline:none}.editor textarea{min-height:90px;resize:vertical}.editor input:focus,.editor textarea:focus{border-color:#d77e9d;box-shadow:0 0 0 3px #fce5ec}
+footer{font:11px Arial,sans-serif;color:#b08a99;margin-top:28px}
+.music-toggle{position:fixed;right:16px;top:16px;z-index:10;border:1px solid #f0c7d4;border-radius:999px;background:#ffffffdf;color:#a94e70;padding:10px 14px;font:12px Arial,sans-serif;box-shadow:0 5px 18px #b66d8520;cursor:pointer}
+.music-toggle.playing{background:#a94e70;color:white;border-color:#a94e70}
+@media(max-width:480px){.panel{border-radius:22px}.lead{font-size:16px}.letter{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+.music-toggle{position:fixed;right:16px;bottom:16px;z-index:10;border:1px solid #efc6d3;border-radius:999px;padding:11px 16px;background:#fffaf5ed;color:#a65375;box-shadow:0 6px 20px #a94e7020;font:13px Arial,sans-serif;cursor:pointer}
+.music-toggle.playing{background:#c96f91;color:white;border-color:#c96f91}
+</style>
+</head>
+<body>
+<audio id="bgMusic" loop preload="none">
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_946b5a8e7d.mp3?filename=romantic-piano-124136.mp3" type="audio/mpeg">
+</audio>
+<button id="musicToggle" class="music-toggle" type="button" aria-label="Putar musik" onclick="toggleMusic()">♫ <span id="musicLabel">Putar musik</span></button>
+<main>
+<section class="page active" id="p0"><div class="panel">
+<div class="eyebrow">A little surprise, made with love</div><div class="envelope" aria-hidden="true"></div>
+<h1>For You,<br><span id="nameCover">Ayang</span> ♡</h1>
+<p class="lead">Ada sesuatu kecil yang ingin Mas Rafi sampaikan di hari spesialmu.</p>
+<button class="btn" onclick="go(1)">Buka kejutanmu ✨</button>
+<p class="small">Psst... siapkan senyum terbaikmu, ya.</p>
+</div></section>
+<section class="page" id="p1"><div class="panel">
+<div class="eyebrow">Today is all about you</div><div class="heart">♥</div>
+<h2>Happy Birthday,<br><span class="name">Ayang</span>!</h2>
+<p class="lead">Selamat bertambah usia, perempuan manis yang selalu punya tempat istimewa di hati Mas Rafi.</p>
+<div class="divider"></div>
+<p class="small">Hari ini bukan cuma tentang bertambahnya umur, tetapi juga tentang semua cerita indah yang menunggumu di depan.</p>
+<div class="actions"><button class="btn" onclick="go(2)">Baca surat kecilku 💌</button></div>
+</div></section>
+<section class="page" id="p2"><div class="panel">
+<div class="eyebrow">A letter from Mas Rafi</div><h2>Untuk <span class="name">Sayang</span>,</h2>
+<div class="letter" id="letterText">Selamat ulang tahun, ya, Sayang. Semoga di usia barumu ini, hal-hal baik semakin sering menemukanmu. Semoga sehat selalu, dilapangkan rezekinya, dimudahkan setiap urusannya, dan satu per satu impianmu bisa menjadi nyata.
 
+Mas Rafi mungkin belum bisa memberikan semuanya, tetapi Mas ingin selalu belajar menjadi seseorang yang bisa kamu percaya, tempat bercerita, dan teman bertumbuh.
+
+Terima kasih sudah hadir dan menjadi bagian dari cerita Mas. Kalau nanti ada hari yang melelahkan, jangan merasa harus menghadapi semuanya sendirian. Kita belajar pelan-pelan, saling memahami, dan saling menguatkan.
+
+Dan satu hal: jangan terlalu sering lupa bahagia, ya. Senyummu itu berharga—meskipun kadang kamu juga suka bikin Mas gemas sendiri. Hehe.
+
+Semoga langkah kita ke depan semakin baik. Bukan hanya tentang hari ini, tetapi juga tentang masa depan yang mudah-mudahan bisa kita bangun bersama.</div>
+<div class="signature">Dengan sayang,<br>Mas Rafi ♡</div>
+<div class="actions"><button class="btn" onclick="go(3)">Ada satu hal lagi...</button></div>
+</div></section>
+<section class="page" id="p3"><div class="panel">
+<div class="eyebrow">A little prayer for us</div><h2>Semoga, ya... 🌷</h2>
+<div class="memory">Semoga kamu selalu dikelilingi orang-orang yang tulus. Semoga hatimu tetap hangat, langkahmu selalu diberi arah, dan masa depanmu dipenuhi hal yang baik.</div>
+<div class="memory">Semoga kita tidak hanya saling menemani saat semuanya mudah, tetapi juga saling menggenggam saat keadaan tidak selalu sesuai harapan.</div>
+<div class="memory">Dan jika memang Tuhan mengizinkan, semoga cerita yang sedang kita jalani hari ini menjadi awal dari perjalanan panjang menuju rumah yang sama.</div>
+<p class="lead">Selamat ulang tahun, <span class="name">Ayang</span>. Hari ini, besok, dan seterusnya—semoga bahagiamu selalu bertambah. ❤️</p>
+<div class="actions"><button class="btn" onclick="go(4)">Lihat kejutan terakhir 🎁</button></div>
+</div></section>
+<section class="page" id="p4"><div class="panel">
+<div class="eyebrow">One last thing</div><div class="heart">♡</div>
+<h2>You're loved. Always.</h2>
+<p class="lead">Terima kasih sudah menjadi kamu. Jangan berhenti tumbuh, bermimpi, dan tersenyum. Mas Rafi akan terus mendoakan yang terbaik untukmu.</p>
+<p class="signature" style="text-align:center">With love,<br>Mas Rafi</p>
+<div class="actions"><button class="btn secondary" onclick="go(0)">Ulangi dari awal ↺</button><button class="btn" onclick="sharePage()">Bagikan kejutan ini ↗</button></div>
+<footer>Dibuat dengan sepenuh hati · khusus untukmu</footer>
+</div></section>
+</main>
+<button id="musicToggle" class="music-toggle" type="button" aria-pressed="false" onclick="toggleMusic()">♫ Putar musik</button>
+<script>
+const params=new URLSearchParams(location.search);
+let sweetheart=params.get('untuk')||'Ayang';
+function safeText(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function applyName(){document.querySelectorAll('.name').forEach(el=>el.textContent=sweetheart);document.getElementById('nameCover').textContent=sweetheart;}
+function go(n){document.querySelectorAll('.page').forEach((p,i)=>p.classList.toggle('active',i===n));window.scrollTo({top:0,behavior:'smooth'});if(n===1||n===4)flowers();}
+function flowers(){for(let i=0;i<18;i++){let f=document.createElement('span');f.className='flower';f.textContent=['✿','♡','❀','♥'][Math.floor(Math.random()*4)];f.style.left=Math.random()*100+'vw';f.style.animationDuration=(5+Math.random()*5)+'s';f.style.fontSize=(14+Math.random()*16)+'px';document.body.appendChild(f);setTimeout(()=>f.remove(),10500);}}
+const music=document.getElementById('bgMusic');
+const musicButton=document.getElementById('musicToggle');
+const musicLabel=document.getElementById('musicLabel');
+async function toggleMusic(){
+  if(music.paused){
+    try{await music.play();musicButton.classList.add('playing');musicLabel.textContent='Musik menyala';musicButton.setAttribute('aria-label','Matikan musik');}
+    catch(e){alert('Musik belum dapat diputar. Periksa koneksi internet, lalu coba lagi.');}
+  }else{music.pause();musicButton.classList.remove('playing');musicLabel.textContent='Putar musik';musicButton.setAttribute('aria-label','Putar musik');}
+}
+// Musik instrumental sederhana dibuat langsung oleh browser (tanpa file lagu eksternal).
+// Browser biasanya mensyaratkan musik dimulai setelah tombol disentuh pengguna.
+let audioCtx=null, musicTimer=null, musicStep=0, musicOn=false;
+const melody=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,523.25,659.25,783.99,1046.5,880,783.99,659.25,587.33];
+const chords=[[261.63,329.63,392.00],[220.00,261.63,329.63],[174.61,220.00,261.63],[196.00,246.94,293.66]];
+function note(freq, start, duration, volume, wave='sine'){
+  const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+  osc.type=wave; osc.frequency.setValueAtTime(freq,start);
+  gain.gain.setValueAtTime(0.0001,start);
+  gain.gain.exponentialRampToValueAtTime(volume,start+0.07);
+  gain.gain.exponentialRampToValueAtTime(0.0001,start+duration);
+  osc.connect(gain);gain.connect(audioCtx.destination);
+  osc.start(start);osc.stop(start+duration+0.03);
+}
+function musicTick(){
+  if(!audioCtx||!musicOn)return;
+  const t=audioCtx.currentTime+0.04;
+  const beat=musicStep%16;
+  note(melody[beat],t,0.62,0.075,'triangle');
+  if(beat%4===0){
+    const chord=chords[Math.floor(musicStep/4)%chords.length];
+    chord.forEach((f,i)=>note(f,t,1.75,0.018,'sine'));
+  }
+  musicStep++;
+}
+async function toggleMusic(){
+  const button=document.getElementById('musicToggle');
+  if(!musicOn){
+    const AudioContext=window.AudioContext||window.webkitAudioContext;
+    if(!AudioContext){alert('Browser ini belum mendukung pemutar musik.');return;}
+    audioCtx=audioCtx||new AudioContext();
+    if(audioCtx.state==='suspended')await audioCtx.resume();
+    musicOn=true;musicTick();musicTimer=setInterval(musicTick,520);
+    button.textContent='♫ Matikan musik';button.classList.add('playing');button.setAttribute('aria-pressed','true');
+  }else{
+    musicOn=false;clearInterval(musicTimer);musicTimer=null;
+    if(audioCtx)await audioCtx.suspend();
+    button.textContent='♫ Putar musik';button.classList.remove('playing');button.setAttribute('aria-pressed','false');
+  }
+}
+function sharePage(){if(navigator.share){navigator.share({title:'A Birthday Surprise',text:'Ada kejutan kecil untukmu ❤️',url:location.href}).catch(()=>{});}else if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(()=>alert('Tautan berhasil disalin.'));}else{prompt('Salin tautan ini:',location.href);}}
+applyName();
+</script>
+</body>
+</html>
