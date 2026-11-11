@@ -1,120 +1,32 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f7eee8">
-<title>Untuk Ayang, dengan cinta — Rafi</title>
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8e9e5"><title>Untuk Ayy — Mas Rafi</title>
 <style>
-:root{--cream:#fbf5ef;--paper:#fffaf6;--rose:#b9787d;--rose2:#d9a6a4;--wine:#70434b;--ink:#493b39;--gold:#b99a69}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#c89b8f .7px,transparent .7px);background-size:15px 15px;z-index:-1}
-button{font:inherit}.serif{font-family:Georgia,'Times New Roman',serif}.sans{font-family:Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
-.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:36px 20px;position:relative;background:linear-gradient(145deg,#fbf5ef 5%,#f3e3dd 58%,#ead2ce)}
-.hero:after{content:"";position:absolute;width:min(75vw,560px);height:min(75vw,560px);border:1px solid #b9787d55;border-radius:50%;box-shadow:0 0 0 18px #ffffff18,0 0 0 38px #b9787d12}
-.hero-inner{position:relative;z-index:1;max-width:720px}.eyebrow{font:11px Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:24px}
-.hero h1{font-size:clamp(48px,9vw,92px);line-height:.98;font-weight:400;margin:0;color:var(--wine)}.hero h1 em{font-weight:400;color:var(--rose)}
-.hero p{font-size:18px;line-height:1.8;max-width:510px;margin:28px auto;color:#765d5a}
-.btn{border:1px solid var(--rose);background:var(--wine);color:#fff8f2;padding:15px 28px;border-radius:2px;cursor:pointer;letter-spacing:.12em;font:11px Arial,sans-serif;text-transform:uppercase;transition:.25s}
-.btn:hover{background:var(--rose);transform:translateY(-2px)}.hero .btn{margin-top:15px}
-.flower{position:absolute;color:#b9787d88;font-size:30px}.f1{top:12%;left:12%}.f2{bottom:13%;right:12%}.f3{top:18%;right:15%;font-size:20px}
-.music{position:fixed;right:18px;bottom:18px;z-index:10;background:#fffaf0eF;border:1px solid #c99c9a;border-radius:30px;padding:10px 15px;color:var(--wine);font:11px Arial,sans-serif;letter-spacing:.08em;box-shadow:0 5px 22px #70434b18;cursor:pointer}
-section{padding:95px 20px}.wrap{max-width:1000px;margin:auto}.section-head{text-align:center;margin-bottom:45px}.section-head .eyebrow{margin-bottom:12px}.section-head h2{font-size:clamp(34px,6vw,52px);font-weight:400;color:var(--wine);margin:0}.section-head p{color:#8b706b;line-height:1.7}
-.intro{text-align:center;background:var(--paper)}.intro .copy{max-width:700px;margin:auto;font-size:19px;line-height:2;color:#6d5652}
-.gallery{background:#f4e9e3}.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
-.photo{background:#fffdf9;padding:12px 12px 22px;box-shadow:0 9px 25px #70434b13;transform:rotate(var(--tilt));transition:.3s}
-.photo:hover{transform:rotate(0) translateY(-6px)}.photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:linear-gradient(135deg,#ead6cf,#f9eee7);border:1px solid #eadbd3}
-.photo figcaption{text-align:center;padding-top:13px;color:#866b66;font-style:italic;font-size:15px}
-.photo .placeholder{aspect-ratio:4/5;display:grid;place-items:center;text-align:center;color:#9e7775;background:linear-gradient(145deg,#f5e8e1,#ead4d0);font:11px Arial,sans-serif;letter-spacing:.12em;padding:15px}
-.timeline{background:var(--paper)}.moments{max-width:700px;margin:auto;border-left:1px solid #d7aaa5;padding-left:30px}
-.moment{position:relative;padding:0 0 35px}.moment:before{content:"";position:absolute;left:-36px;top:6px;width:11px;height:11px;background:var(--rose);border:3px solid var(--paper);border-radius:50%;box-shadow:0 0 0 1px var(--rose)}
-.moment h3{font-weight:400;color:var(--wine);font-size:23px;margin:0 0 8px}.moment p{line-height:1.8;color:#806964;margin:0}
-.letter{background:linear-gradient(145deg,#f2e4de,#fbf5ef)}.letter-card{max-width:760px;margin:auto;background:#fffaf6;padding:clamp(28px,6vw,65px);box-shadow:0 15px 45px #70434b12;border:1px solid #ead8d0;position:relative}
-.letter-card:before,.letter-card:after{content:"";position:absolute;width:55px;height:55px;border-color:#c99c9a;border-style:solid;opacity:.7}.letter-card:before{top:13px;left:13px;border-width:1px 0 0 1px}.letter-card:after{bottom:13px;right:13px;border-width:0 1px 1px 0}
-.letter-card p{font-size:17px;line-height:2;color:#6d5652}.letter-card .salute{font-size:25px;color:var(--wine);font-style:italic}
-.wish{text-align:center;background:var(--wine);color:#fff5ed}.wish .section-head h2{color:#fff5ed}.wish .section-head .eyebrow{color:#e5b9ae}.wish p{max-width:720px;margin:0 auto;font-size:19px;line-height:2;color:#f3ddd5}
-.signature{font-size:31px;font-style:italic;color:#edc5bb;margin-top:35px}
-footer{text-align:center;padding:35px 15px;background:#f7eee8;color:#9a7771;font:10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
-.fade{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}.fade.show{opacity:1;transform:none}
-@media(max-width:700px){section{padding:72px 18px}.photos{grid-template-columns:repeat(2,1fr);gap:14px}.photo:nth-child(3n){transform:rotate(0)}.intro .copy{font-size:17px}.music{right:12px;bottom:12px}}
-@media(max-width:420px){.photos{grid-template-columns:1fr 1fr}.photo{padding:8px 8px 15px}.photo figcaption{font-size:13px}}
-</style>
-</head>
-<body>
-<audio id="bgMusic" loop preload="none"><source src="assets/musik.mp3" type="audio/mpeg"></audio>
-<button class="music" id="musicBtn" aria-label="Putar musik">♫ PUTAR MUSIK</button>
-
-<header class="hero" id="home">
-  <span class="flower f1">✿</span><span class="flower f2">❀</span><span class="flower f3">✧</span>
-  <div class="hero-inner">
-    <div class="eyebrow">A little celebration of you</div>
-    <h1>Happy Birthday,<br><em id="heroName">Ayy</em></h1>
-    <p>Untuk seseorang yang kehadirannya membuat hari-hari sederhana terasa jauh lebih istimewa.</p>
-    <button class="btn" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">Buka hadiah kecil ini</button>
-  </div>
-</header>
-
-<section class="intro" id="intro"><div class="wrap fade">
-  <div class="section-head"><div class="eyebrow">A note from my heart</div><h2>Hari istimewa tentang kamu</h2></div>
-  <p class="copy">Hari ini bukan hanya tentang bertambahnya usia, tetapi juga tentang semua cerita, tawa, dan kebaikan yang sudah kamu bawa ke dunia. Semoga kamu selalu punya alasan untuk tersenyum, bahkan pada hari-hari yang terasa berat.</p>
-</div></section>
-
-<section class="gallery"><div class="wrap">
-  <div class="section-head fade"><div class="eyebrow">Our little collection</div><h2>Potongan cerita kita</h2><p>Beberapa momen yang ingin selalu Rafi simpan.</p></div>
-  <div class="photos">
-    <figure class="photo fade" style="--tilt:-2deg"><div class="placeholder" data-placeholder="foto-1.jpg">TAMBAHKAN FOTO 1</div><figcaption>One of my favorites</figcaption></figure>
-    <figure class="photo fade" style="--tilt:1.5deg"><div class="placeholder" data-placeholder="foto-2.jpg">TAMBAHKAN FOTO 2</div><figcaption>That lovely smile</figcaption></figure>
-    <figure class="photo fade" style="--tilt:-1deg"><div class="placeholder" data-placeholder="foto-3.jpg">TAMBAHKAN FOTO 3</div><figcaption>A day to remember</figcaption></figure>
-    <figure class="photo fade" style="--tilt:1.8deg"><div class="placeholder" data-placeholder="foto-4.jpg">TAMBAHKAN FOTO 4</div><figcaption>My happy place</figcaption></figure>
-    <figure class="photo fade" style="--tilt:-1.5deg"><div class="placeholder" data-placeholder="foto-5.jpg">TAMBAHKAN FOTO 5</div><figcaption>Little moments, big meaning</figcaption></figure>
-    <figure class="photo fade" style="--tilt:2deg"><div class="placeholder" data-placeholder="foto-6.jpg">TAMBAHKAN FOTO 6</div><figcaption>Always worth remembering</figcaption></figure>
-    <figure class="photo fade" style="--tilt:-1deg"><div class="placeholder" data-placeholder="foto-7.jpg">TAMBAHKAN FOTO 7</div><figcaption>My favorite person</figcaption></figure>
-    <figure class="photo fade" style="--tilt:1deg"><div class="placeholder" data-placeholder="foto-8.jpg">TAMBAHKAN FOTO 8</div><figcaption>To more memories</figcaption></figure>
-  </div>
-</div></section>
-
-<section class="timeline"><div class="wrap">
-  <div class="section-head fade"><div class="eyebrow">The story continues</div><h2>Hal-hal kecil yang berarti</h2></div>
-  <div class="moments fade">
-    <article class="moment"><h3>Pertemuan yang sederhana</h3><p>Siapa sangka, dari pertemuan dan obrolan sederhana, hadir seseorang yang kemudian punya tempat istimewa di hati.</p></article>
-    <article class="moment"><h3>Tawa di antara cerita</h3><p>Ada banyak hal yang mungkin terlihat biasa bagi orang lain, tetapi menjadi kenangan berharga ketika dijalani bersamamu.</p></article>
-    <article class="moment"><h3>Masih banyak halaman di depan</h3><p>Semoga kita terus diberi kesempatan untuk belajar, bertumbuh, dan menulis cerita baik berikutnya bersama-sama.</p></article>
-  </div>
-</div></section>
-
-<section class="letter"><div class="wrap fade">
-  <div class="section-head"><div class="eyebrow">A letter for you</div><h2>Untuk kamu, sayang</h2></div>
-  <div class="letter-card">
-    <p class="salute">Ayy,</p>
-    <p>Selamat ulang tahun, ya. Terima kasih sudah hadir dan menjadi bagian dari cerita Rafi. Maaf kalau selama ini Mas belum selalu bisa menjadi orang yang sempurna. Mas masih belajar memahami, menjaga, dan menyayangi dengan cara yang lebih baik.</p>
-    <p>Mas tidak akan menjanjikan bahwa setiap hari nanti akan selalu mudah. Tapi Mas berharap, ketika hari-hari terasa berat, kita tetap mau saling menggenggam dan mengingat bahwa kita berada di sisi yang sama.</p>
-    <p>Teruslah menjadi dirimu sendiri. Jangan kecilkan mimpi-mimpimu, jangan lupa beristirahat, dan jangan terlalu keras pada diri sendiri. Kamu pantas mendapatkan banyak hal baik.</p>
-    <p>Semoga usia baru ini membawa kesehatan, ketenangan, rezeki yang baik, langkah yang dimudahkan, dan kebahagiaan yang tidak hanya datang sesekali, tetapi menetap dalam hidupmu.</p>
-    <p>Terima kasih sudah menjadi kamu. Rafi bersyukur bisa mengenal dan menyayangimu.</p>
-    <p class="salute">Dengan sayang,<br> Rafi ♡</p>
-  </div>
-</div></section>
-
-<section class="wish"><div class="wrap fade">
-  <div class="section-head"><div class="eyebrow">My wish for you</div><h2>Semoga selalu bahagia</h2></div>
-  <p>Semoga setiap doa baik menemukan jalannya menuju kamu. Semoga langkahmu selalu dikuatkan, hatimu dijaga, dan hal-hal yang sedang kamu perjuangkan perlahan menjadi nyata. Dan jika Tuhan mengizinkan, semoga Mas masih bisa ada di banyak ulang tahunmu berikutnya.</p>
-  <div class="signature">Happy Birthday, <span id="wishName">Ayy</span>.</div>
-</div></section>
-<footer>Made with love · Rafi</footer>
-
+:root{--rose:#bd7887;--deep:#704252;--cream:#fff8f1;--pink:#f5e2e1;--gold:#c6a36a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:#654e50;font-family:Georgia,serif}.screen{min-height:100svh;display:grid;place-items:center;text-align:center;padding:28px 18px;background:radial-gradient(circle,#fffaf5,#f1dadd);position:relative;overflow:hidden}.screen:before,.screen:after{content:"";position:absolute;width:280px;height:280px;border:1px solid #bd788755;border-radius:50%;animation:pulse 5s infinite}.screen:after{width:380px;height:380px;animation-delay:1s}@keyframes pulse{50%{transform:scale(1.08);opacity:.4}}.inner{max-width:680px;position:relative;z-index:1}.small{font:11px Arial;letter-spacing:.25em;text-transform:uppercase;color:var(--rose)}h1{font-size:clamp(42px,9vw,78px);line-height:1.03;font-weight:400;color:var(--deep);margin:20px 0}h1 em{color:var(--rose)}.introtext{font-size:17px;line-height:1.9;color:#86686c}.envelope{width:145px;height:100px;margin:30px auto;background:#e7b8c0;position:relative;display:grid;place-items:center;box-shadow:0 12px 30px #70425225}.envelope:before{content:"";position:absolute;inset:0;background:#d99da8;clip-path:polygon(0 0,50% 58%,100% 0)}.envelope span{z-index:2;color:white;font-size:30px}.btn{background:var(--deep);color:white;border:0;border-radius:30px;padding:14px 26px;font:11px Arial;letter-spacing:.12em;cursor:pointer}.btn:hover{background:var(--rose)}#main{display:none}.hero{min-height:90svh;background:linear-gradient(145deg,#fff8f1,#f2dadd)}.hero h2{font-size:clamp(48px,10vw,88px);line-height:1;font-weight:400;color:var(--deep)}.hero h2 em{color:var(--rose)}section{padding:78px 18px}.wrap{max-width:950px;margin:auto}.head{text-align:center;margin-bottom:38px}.head h3{font-size:clamp(32px,6vw,50px);font-weight:400;color:var(--deep);margin:12px 0}.head p{color:#96777a;line-height:1.7}.copy{max-width:720px;margin:auto;text-align:center;font-size:19px;line-height:2}.musicsec{background:#f9efeb}.player{max-width:570px;margin:auto;display:flex;align-items:center;gap:16px;background:#fffaf6;padding:20px;border:1px solid #ead1d0;border-radius:16px}.disc{width:58px;height:58px;flex:none;border-radius:50%;background:radial-gradient(circle,#f8e9e5 0 12%,#a95e70 13% 17%,#352a30 18%);display:grid;place-items:center;color:white}.track{flex:1;text-align:left}.track b{display:block;font-weight:400;color:var(--deep)}.track small{font:10px Arial;letter-spacing:.1em;color:#a17e80}.play{width:42px;height:42px;border-radius:50%;border:1px solid var(--rose);background:white;color:var(--deep);cursor:pointer}.gallery{background:#f7e8e5}.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.polaroid{padding:9px 9px 17px;background:#fff;box-shadow:0 8px 22px #70425218;transform:rotate(var(--r));transition:.3s}.polaroid:hover{transform:rotate(0) translateY(-5px)}.polaroid img,.placeholder{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:linear-gradient(135deg,#f1dadd,#fff3eb)}.placeholder{display:grid;place-items:center;color:#a36f79;font:11px Arial;letter-spacing:.12em}.polaroid figcaption{text-align:center;font-style:italic;padding-top:11px;color:#8d686e}.timeline{max-width:680px;margin:auto;border-left:1px solid #d9a2aa;padding-left:28px}.event{position:relative;margin:0 0 28px}.event:before{content:"♡";position:absolute;left:-39px;color:var(--rose);background:var(--cream)}.event h4{font-size:22px;font-weight:400;color:var(--deep);margin:0 0 7px}.event p{line-height:1.8;margin:0}.letter{background:linear-gradient(145deg,#f5e2df,#fff8f1)}.letterbox{max-width:740px;margin:auto;padding:clamp(28px,6vw,58px);background:#fffaf6;border:1px solid #ead2cd;box-shadow:0 14px 35px #70434b12}.letterbox p{font-size:17px;line-height:2}.letterbox .dear{font-size:25px;color:var(--deep);font-style:italic}.final{background:var(--deep);color:#fff5ef;text-align:center}.final h3{font-size:clamp(36px,7vw,58px);font-weight:400}.final p{max-width:720px;margin:auto;line-height:2;font-size:19px;color:#f1dadd}.sign{font-size:30px;color:#f1bdc5;font-style:italic;margin-top:28px}footer{text-align:center;padding:28px;background:#fff8f1;color:#a17e80;font:10px Arial;letter-spacing:.18em;text-transform:uppercase}.float{position:fixed;right:14px;bottom:14px;z-index:5;border:1px solid #d9a2aa;background:#fffaf2;color:var(--deep);border-radius:24px;padding:10px 14px;font:10px Arial;letter-spacing:.08em}.reveal{opacity:0;transform:translateY(20px);transition:.8s}.reveal.show{opacity:1;transform:none}@media(max-width:720px){.photos{grid-template-columns:repeat(2,1fr)}section{padding:62px 15px}}
+</style></head><body>
+<audio id="song" loop><source src="assets/musik.mp3" type="audio/mpeg"></audio><button class="float" id="float" style="display:none">♫ PUTAR MUSIK</button>
+<div class="screen" id="opening"><div class="inner"><div class="small">A little surprise from Mas Rafi</div><h1>Untuk seseorang<br>yang <em>istimewa</em></h1><p class="introtext">Ada sesuatu kecil yang ingin Mas sampaikan di hari spesialmu...</p><div class="envelope"><span>♡</span></div><button class="btn" id="open">BUKA SURATNYA</button></div></div>
+<div id="main">
+<header class="screen hero"><div class="inner"><div class="small">Today is all about you</div><h2>Happy Birthday,<br><em id="n1">Ayy</em> ♡</h2><p class="introtext">Selamat bertambah usia, manusia kesayangan. Semoga hari ini dipenuhi hal-hal baik, tawa yang panjang, dan kebahagiaan yang berlipat.</p><button class="btn" onclick="document.getElementById('greeting').scrollIntoView({behavior:'smooth'})">LANJUTKAN KE KEJUTAN</button></div></header>
+<section id="greeting"><div class="wrap reveal"><div class="head"><div class="small">A special day</div><h3>Hari ini tentang kamu</h3></div><p class="copy">Dari sekian banyak hal baik yang terjadi dalam hidup Mas, salah satunya adalah kesempatan untuk mengenal kamu. Terima kasih sudah hadir, membawa cerita, tawa, dan warna dalam hari-hari Mas. Hari ini, izinkan Mas merayakan kamu sedikit lebih banyak dari biasanya.</p></div></section>
+<section class="musicsec"><div class="wrap reveal"><div class="head"><div class="small">Press play, please</div><h3>Satu lagu untukmu</h3><p>Masukkan lagu pilihanmu ke folder assets untuk menemani kejutan ini.</p></div><div class="player"><div class="disc">♫</div><div class="track"><b>Lagu pilihan Mas Rafi</b><small>OUR LITTLE SOUNDTRACK</small></div><button class="play" id="play">▶</button></div></div></section>
+<section class="gallery"><div class="wrap"><div class="head reveal"><div class="small">Captured moments</div><h3>Galeri kenangan kita</h3><p>Beberapa momen yang ingin Mas simpan baik-baik.</p></div><div class="photos">
+<figure class="polaroid reveal" style="--r:-2deg"><div class="placeholder" data-photo="foto-1.jpg">FOTO 1</div><figcaption>Little happiness ♡</figcaption></figure>
+<figure class="polaroid reveal" style="--r:1.5deg"><div class="placeholder" data-photo="foto-2.jpg">FOTO 2</div><figcaption>Your lovely smile</figcaption></figure>
+<figure class="polaroid reveal" style="--r:-1deg"><div class="placeholder" data-photo="foto-3.jpg">FOTO 3</div><figcaption>A day to remember</figcaption></figure>
+<figure class="polaroid reveal" style="--r:2deg"><div class="placeholder" data-photo="foto-4.jpg">FOTO 4</div><figcaption>Just us</figcaption></figure>
+<figure class="polaroid reveal" style="--r:-1.5deg"><div class="placeholder" data-photo="foto-5.jpg">FOTO 5</div><figcaption>My favorite moment</figcaption></figure>
+<figure class="polaroid reveal" style="--r:1deg"><div class="placeholder" data-photo="foto-6.jpg">FOTO 6</div><figcaption>More memories</figcaption></figure>
+<figure class="polaroid reveal" style="--r:-1deg"><div class="placeholder" data-photo="foto-7.jpg">FOTO 7</div><figcaption>Always you</figcaption></figure>
+<figure class="polaroid reveal" style="--r:1.5deg"><div class="placeholder" data-photo="foto-8.jpg">FOTO 8</div><figcaption>To our next chapter</figcaption></figure>
+</div></div></section>
+<section><div class="wrap reveal"><div class="head"><div class="small">Our story</div><h3>Dan cerita yang terus berjalan</h3></div><div class="timeline"><article class="event"><h4>Awal yang tidak disangka</h4><p>Semua bisa berawal dari hal sederhana. Namun, beberapa pertemuan ternyata meninggalkan kesan yang istimewa.</p></article><article class="event"><h4>Tawa, cerita, dan belajar</h4><p>Kita mungkin tidak selalu sepemikiran, tetapi semoga selalu punya ruang untuk saling mendengar dan memahami.</p></article><article class="event"><h4>Masih banyak cerita menanti</h4><p>Semoga perjalanan ke depan memberi kita lebih banyak alasan untuk bersyukur dan bertumbuh bersama.</p></article></div></div></section>
+<section class="letter"><div class="wrap reveal"><div class="head"><div class="small">From my heart</div><h3>Surat kecil dari Mas</h3></div><div class="letterbox"><p class="dear">Untuk Ayy,</p><p>Selamat ulang tahun, sayang. Semoga di usia yang baru ini, kamu semakin dekat dengan semua hal yang selama ini kamu doakan dan perjuangkan. Semoga sehat selalu, dilapangkan rezekinya, dimudahkan urusannya, dan dikelilingi orang-orang yang tulus menyayangimu.</p><p>Mas tahu, Mas bukan orang yang selalu benar dan sempurna. Kadang masih suka menyebalkan, kadang bercandanya kelewatan, dan mungkin belum selalu bisa memahami semua yang kamu rasakan. Tapi Mas ingin terus belajar menjadi seseorang yang lebih baik untukmu.</p><p>Kalau boleh sedikit egois, Mas ingin tetap menjadi salah satu orang yang kamu cari saat bahagia maupun lelah. Bukan karena Mas bisa menyelesaikan semuanya, tetapi karena Mas ingin menemani prosesnya.</p><p>Jangan lupa bahagia, jangan terlalu keras pada diri sendiri, dan jangan berhenti bermimpi. Kalau suatu hari kamu merasa dunia sedang tidak ramah, semoga kamu ingat bahwa ada Mas yang selalu mendoakan hal-hal baik untukmu.</p><p>Terima kasih sudah menjadi bagian indah dalam hidup Mas. Semoga ini bukan sekadar ucapan untuk hari ini, tetapi awal dari banyak ulang tahun yang bisa kita rayakan bersama.</p><p class="dear">Dengan cinta,<br>Mas Rafi ♡</p></div></div></section>
+<section class="final"><div class="wrap reveal"><div class="small" style="color:#efbdc5">One last wish</div><h3>Jadilah bahagia, ya.</h3><p>Semoga semua doa baik menemukan jalannya. Semoga langkahmu selalu dikuatkan, hatimu ditenangkan, dan masa depan menyimpan banyak hal indah untukmu. Jika Tuhan mengizinkan, Mas ingin tetap ada di cerita-cerita baikmu berikutnya.</p><div class="sign">Happy Birthday, <span id="n2">Ayy</span> ♡</div></div></section><footer>Made with love, especially for you · Mas Rafi</footer>
+</div>
 <script>
-const params=new URLSearchParams(location.search);
-const recipient=params.get('untuk')||'Ayy';
-document.getElementById('heroName').textContent=recipient;
-document.getElementById('wishName').textContent=recipient;
-const audio=document.getElementById('bgMusic'),btn=document.getElementById('musicBtn');
-btn.addEventListener('click',async()=>{try{if(audio.paused){await audio.play();btn.textContent='Ⅱ JEDA MUSIK'}else{audio.pause();btn.textContent='♫ PUTAR MUSIK'}}catch(e){btn.textContent='♫ CEK FILE MUSIK'}});
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
-document.querySelectorAll('[data-placeholder]').forEach(box=>{
- const filename=box.dataset.placeholder;
- const img=new Image();img.src='assets/'+filename;
- img.onload=()=>{const el=document.createElement('img');el.src=img.src;el.alt='Kenangan bersama';box.replaceWith(el);};
-});
-</script>
-</body></html>
+const name=new URLSearchParams(location.search).get('untuk')||'Ayy';document.getElementById('n1').textContent=name;document.getElementById('n2').textContent=name;
+document.getElementById('open').onclick=()=>{const o=document.getElementById('opening');o.style.transition='opacity .7s';o.style.opacity=0;setTimeout(()=>{o.style.display='none';document.getElementById('main').style.display='block';document.getElementById('float').style.display='block';scrollTo(0,0)},700)};
+const a=document.getElementById('song'),p=document.getElementById('play'),f=document.getElementById('float');async function music(){try{if(a.paused){await a.play();p.textContent='Ⅱ';f.textContent='Ⅱ JEDA MUSIK'}else{a.pause();p.textContent='▶';f.textContent='♫ PUTAR MUSIK'}}catch(e){alert('Tambahkan file assets/musik.mp3 terlebih dahulu.')}}p.onclick=music;f.onclick=music;
+document.querySelectorAll('[data-photo]').forEach(x=>{let i=new Image();i.src='assets/'+x.dataset.photo;i.onload=()=>{let n=document.createElement('img');n.src=i.src;n.alt='Foto kenangan';x.replaceWith(n)}});
+let ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ob.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>ob.observe(x));
+</script></body></html>
