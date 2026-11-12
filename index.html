@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f7eee7">
-<title>For You, With Love — Rafi</title>
+<title>For You, With Love — Mas Rafi</title>
 <style>
 :root{--cream:#f7eee7;--paper:#fffaf5;--rose:#bd7d83;--deep:#754b50;--gold:#c7a36a;--ink:#59484a}
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
@@ -48,22 +48,22 @@ p{font-size:clamp(15px,2.2vw,18px);line-height:1.8;margin:14px auto;max-width:62
 <div class="eyebrow">A little surprise for you</div><div class="cover-heart">♡</div>
 <h1>For You,<br><span class="script">With Love</span></h1>
 <div class="ornament">— ✧ —</div>
-<p>Ada sesuatu yang ingin Rafi sampaikan di hari spesialmu.</p>
-<button class="btn" onclick="go(1)">Buka kejutan ♡</button>
+<p>Ada sesuatu yang ingin Mas Rafi sampaikan di hari spesialmu.</p>
+<button class="btn" onclick="openSurprise()">Buka kejutan ♡</button>
 <p class="hint">Geser atau tekan tombol untuk melanjutkan</p>
 </div></section>
 
 <section class="slide"><div class="frame">
 <div class="eyebrow">Today is all about you</div><h2>Happy Birthday, <span class="script" id="recipient">Ayy</span>!</h2>
 <div class="ornament">✧ ❀ ✧</div>
-<p>Selamat bertambah usia, seseorang yang kehadirannya membuat hari-hari Rafi terasa lebih berwarna.</p>
+<p>Selamat bertambah usia, seseorang yang kehadirannya membuat hari-hari Mas Rafi terasa lebih berwarna.</p>
 <p>Semoga hari ini dipenuhi senyum, hal-hal baik, dan kebahagiaan yang sederhana tetapi berarti.</p>
 <button class="btn" onclick="next()">Lanjutkan</button>
 </div></section>
 
 <section class="slide"><div class="frame">
 <div class="eyebrow">Little pieces of us</div><h2>Our <span class="script">Moments</span></h2>
-<p>Beberapa potongan cerita yang ingin selalu Rafi simpan.</p>
+<p>Beberapa potongan cerita yang ingin selalu Mas Rafi simpan.</p>
 <div class="photo-grid">
 <div class="photo" style="--r:-3deg"><img src="assets/foto-1.jpg" alt="Foto kenangan 1"><small>our moment ♡</small></div>
 <div class="photo" style="--r:2deg"><img src="assets/foto-2.jpg" alt="Foto kenangan 2"><small>my favorite</small></div>
@@ -83,20 +83,20 @@ p{font-size:clamp(15px,2.2vw,18px);line-height:1.8;margin:14px auto;max-width:62
 <div class="memory"><b>Hari-hari yang berwarna</b><br>Dari obrolan kecil, tawa, sampai cerita yang tidak selalu mudah.</div>
 <div class="memory"><b>Hari ini dan nanti</b><br>Semoga kita terus belajar memahami, menjaga, dan bertumbuh bersama.</div>
 </div>
-<p>Bagian ini bisa Rafi ubah dengan tanggal dan kenangan kalian sendiri.</p>
+<p>Bagian ini bisa Mas Rafi ubah dengan tanggal dan kenangan kalian sendiri.</p>
 <button class="btn" onclick="next()">Ada pesan untukmu</button>
 </div></section>
 
 <section class="slide"><div class="frame">
-<div class="eyebrow">A letter from Rafi</div><h2>Dear <span class="script" id="recipient2">Ayy</span>,</h2>
+<div class="eyebrow">A letter from Mas Rafi</div><h2>Dear <span class="script" id="recipient2">Ayy</span>,</h2>
 <div class="letter">
-Terima kasih sudah hadir dan menjadi bagian dari cerita Rafi. Mas mungkin tidak selalu pandai merangkai kata atau menunjukkan rasa sayang dengan sempurna, tetapi Mas ingin kamu tahu bahwa kehadiranmu sangat berarti.
+Terima kasih sudah hadir dan menjadi bagian dari cerita Mas Rafi. Mas mungkin tidak selalu pandai merangkai kata atau menunjukkan rasa sayang dengan sempurna, tetapi Mas ingin kamu tahu bahwa kehadiranmu sangat berarti.
 <br><br>
 Di usia yang baru ini, semoga kamu semakin kuat menghadapi apa pun, semakin dekat dengan semua impianmu, dan tidak pernah merasa sendirian. Kalau suatu hari dunia terasa melelahkan, semoga kita bisa saling menjadi tempat untuk pulang.
 <br><br>
-Tetap jadi dirimu yang istimewa. Rafi akan terus belajar menjadi seseorang yang lebih baik, bukan hanya untuk diri sendiri, tetapi juga untuk masa depan yang ingin kita bangun.
+Tetap jadi dirimu yang istimewa. Mas Rafi akan terus belajar menjadi seseorang yang lebih baik, bukan hanya untuk diri sendiri, tetapi juga untuk masa depan yang ingin kita bangun.
 <br><br>
-With love,<br><b> Rafi ♡</b>
+With love,<br><b>Mas Rafi ♡</b>
 </div>
 <button class="btn" onclick="next()">Satu harapan lagi</button>
 </div></section>
@@ -116,7 +116,7 @@ With love,<br><b> Rafi ♡</b>
 <p>Jangan lupa bahagia hari ini, besok, dan seterusnya.</p>
 <div class="ornament">— ✧ ❀ ✧ —</div>
 <p>From someone who is grateful to have you.</p>
-<h2 class="script">Rafi</h2>
+<h2 class="script">Mas Rafi</h2>
 <button class="btn ghost" onclick="go(0)">Ulangi dari awal</button>
 </div></section>
 
@@ -133,6 +133,17 @@ const dots=document.getElementById('dots'),counter=document.getElementById('coun
 slides.forEach((_,i)=>{const b=document.createElement('button');b.className='dot'+(i===0?' on':'');b.setAttribute('aria-label','Slide '+(i+1));b.onclick=()=>go(i);dots.appendChild(b)});
 function go(n){slides[current].classList.remove('active');slides[current].classList.toggle('prev',n<current);current=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>{s.classList.toggle('active',i===current);s.classList.toggle('prev',i<current)});[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===current));counter.textContent=String(current+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')}
 function next(){go(current===slides.length-1?0:current+1)}function prev(){go(current===0?slides.length-1:current-1)}
+async function openSurprise(){
+  go(1);
+  try{
+    await audio.play();
+    playing=true;
+    musicBtn.textContent='Ⅱ Jeda musik';
+  }catch(e){
+    playing=false;
+    musicBtn.textContent='♫ Putar musik';
+  }
+}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
 let startX=0;document.getElementById('deck').addEventListener('touchstart',e=>startX=e.changedTouches[0].screenX,{passive:true});
 document.getElementById('deck').addEventListener('touchend',e=>{let dx=e.changedTouches[0].screenX-startX;if(Math.abs(dx)>55){dx<0?next():prev()}},{passive:true});
