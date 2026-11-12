@@ -46,14 +46,20 @@ p{font-size:clamp(14px,2.2vw,17px);line-height:1.85;max-width:630px;margin:15px 
 .frame:before,.frame:after{content:"✿";position:absolute;color:#c58c91;font-size:22px;opacity:.65}.frame:before{top:12px;left:15px}.frame:after{bottom:12px;right:15px}
 .divider{color:var(--gold);letter-spacing:.7em;margin:20px}
 .big{font:400 clamp(54px,11vw,100px)/.98 Georgia,serif;color:var(--rose);margin:20px 0;text-shadow:0 8px 25px #d87d941e;animation:softGlow 3.4s ease-in-out infinite alternate}@keyframes softGlow{to{text-shadow:0 10px 30px #d87d9445}}
-.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;max-width:670px;margin:22px auto}.photo{background:white;padding:8px 8px 14px;box-shadow:0 8px 22px #6f475014;transform:rotate(var(--r));transition:.3s}.photo:hover{transform:rotate(0) translateY(-5px)}
-.placeholder{aspect-ratio:4/5;display:grid;place-items:center;background:linear-gradient(145deg,#f8dce2,#f8eee6);border:1px dashed #d9aab6;color:#a66a79;font:13px Georgia,serif}.placeholder span{display:block;font-size:30px;margin-bottom:7px}.photo small{display:block;margin-top:9px;color:#98747d;font-size:10px}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;max-width:670px;margin:22px auto}
+.photo{background:white;padding:8px 8px 14px;box-shadow:0 8px 22px #6f475014;transform:rotate(var(--r));transition:transform .3s,box-shadow .3s;min-width:0}
+.photo:hover{transform:rotate(0) translateY(-5px);box-shadow:0 12px 28px #6f475022}
+.photo-media{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(145deg,#f8dce2,#f8eee6)}
+.photo-media img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;opacity:0;transition:opacity .55s ease}
+.placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#f8dce2,#f8eee6);border:1px dashed #d9aab6;color:#a66a79;font:13px Georgia,serif}
+.placeholder span{display:block;font-size:30px;margin-bottom:7px}
+.photo small{display:block;margin-top:9px;color:#98747d;font-size:10px;text-align:center;letter-spacing:.03em}
 .timeline{display:grid;gap:12px;text-align:left;max-width:600px;margin:22px auto}.memory{background:#fff8f3;padding:14px 17px;border-left:3px solid var(--rose);border-radius:8px}.memory b{font:18px Georgia,serif;color:var(--deep)}.memory p{font-size:13px;margin:5px 0 0}.memory{transition:transform .3s,box-shadow .3s}.memory:hover{transform:translateX(4px);box-shadow:0 8px 20px #9d496312}
 .letter{max-width:650px;margin:20px auto;padding:24px;background:linear-gradient(145deg,#fff 0%,#fffaf7 100%);border:1px solid #efd6d8;border-radius:12px;text-align:left;line-height:1.95;font-family:Georgia,serif;box-shadow:0 12px 35px #9d49630d}
 .nav{position:fixed;z-index:25;bottom:17px;left:0;right:0;display:none;align-items:center;justify-content:center;gap:13px}.arrow{width:42px;height:42px;border-radius:50%;border:1px solid #dbaab5;background:#fffaf5;color:var(--deep);font-size:21px}.dots{display:flex;gap:7px}.dot{width:7px;height:7px;border:0;border-radius:50%;padding:0;background:#ddbfc4}.dot.on{background:#a7556c;transform:scale(1.4)}.counter{position:fixed;z-index:25;top:19px;left:18px;font:11px Arial,sans-serif;letter-spacing:.12em;color:#986b77;display:none}
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-@media(max-width:600px){.slide{padding:58px 12px 78px}.frame{padding:29px 17px}.photos{grid-template-columns:repeat(2,1fr);gap:9px}.photo:nth-child(3n){display:none}.music{top:10px;right:10px}.counter{top:18px;left:12px}}
+@media(max-width:600px){.slide{padding:58px 12px 78px}.frame{padding:29px 17px}.photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.photo{padding:6px 6px 11px}.photo small{font-size:9px}.music{top:10px;right:10px}.counter{top:18px;left:12px}}
 </style>
 </head>
 <body>
@@ -67,12 +73,30 @@ p{font-size:clamp(14px,2.2vw,17px);line-height:1.85;max-width:630px;margin:15px 
 <div class="deck" id="deck">
  <section class="slide active"><div class="frame"><div class="tag">A DAY AS LOVELY AS YOU</div><div class="big">Happy<br>Birthday!</div><h2>Untuk <em class="recipient">Ayy</em> tersayang ♡</h2><p>Selamat ulang tahun, seseorang yang begitu berarti. Semoga usia baru ini membawa lebih banyak kebahagiaan, kesehatan, ketenangan, dan kesempatan untuk mewujudkan hal-hal yang kamu impikan. Terima kasih telah hadir dan menjadikan banyak hari Rafi terasa lebih indah.</p><div class="divider">— ✧ —</div><button class="primary" onclick="next()">Lanjutkan ♡</button></div></section>
  <section class="slide"><div class="frame"><div class="tag">FRAGMENTS OF HAPPINESS</div><h2>Our <em>Moments</em></h2><p>Beberapa momen mungkin terlihat sederhana, tetapi selalu punya tempat istimewa dalam ingatan. Di sini, Rafi ingin menyimpan enam potongan cerita kita.</p><div class="photos">
-  <div class="photo" style="--r:-3deg"><div class="placeholder"><div><span>♡</span>Ganti foto 1</div></div><small>a day to remember</small></div>
-  <div class="photo" style="--r:2deg"><div class="placeholder"><div><span>✿</span>Ganti foto 2</div></div><small>my favorite smile</small></div>
-  <div class="photo" style="--r:-2deg"><div class="placeholder"><div><span>♡</span>Ganti foto 3</div></div><small>a little happiness</small></div>
-  <div class="photo" style="--r:2deg"><div class="placeholder"><div><span>✧</span>Ganti foto 4</div></div><small>side by side</small></div>
-  <div class="photo" style="--r:-1deg"><div class="placeholder"><div><span>❀</span>Ganti foto 5</div></div><small>the little details</small></div>
-  <div class="photo" style="--r:3deg"><div class="placeholder"><div><span>♡</span>Ganti foto 6</div></div><small>and many more</small></div>
+  <div class="photo" style="--r:-3deg"><div class="photo-media">
+   <img src="assets/foto-1.jpg" alt="Kenangan pertama" loading="lazy" onload="this.style.opacity='1';this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+   <div class="placeholder"><div><span>♡</span>Foto 1</div></div>
+  </div><small>a day to remember</small></div>
+  <div class="photo" style="--r:2deg"><div class="photo-media">
+   <img src="assets/foto-2.jpg" alt="Kenangan kedua" loading="lazy" onload="this.style.opacity='1';this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+   <div class="placeholder"><div><span>✿</span>Foto 2</div></div>
+  </div><small>my favorite smile</small></div>
+  <div class="photo" style="--r:-2deg"><div class="photo-media">
+   <img src="assets/foto-3.jpg" alt="Kenangan ketiga" loading="lazy" onload="this.style.opacity='1';this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+   <div class="placeholder"><div><span>♡</span>Foto 3</div></div>
+  </div><small>a little happiness</small></div>
+  <div class="photo" style="--r:2deg"><div class="photo-media">
+   <img src="assets/foto-4.jpg" alt="Kenangan keempat" loading="lazy" onload="this.style.opacity='1';this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+   <div class="placeholder"><div><span>✧</span>Foto 4</div></div>
+  </div><small>side by side</small></div>
+  <div class="photo" style="--r:-1deg"><div class="photo-media">
+   <img src="assets/foto-5.jpg" alt="Kenangan kelima" loading="lazy" onload="this.style.opacity='1';this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+   <div class="placeholder"><div><span>❀</span>Foto 5</div></div>
+  </div><small>the little details</small></div>
+  <div class="photo" style="--r:3deg"><div class="photo-media">
+   <img src="assets/foto-6.jpg" alt="Kenangan keenam" loading="lazy" onload="this.style.opacity='1';this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+   <div class="placeholder"><div><span>♡</span>Foto 6</div></div>
+  </div><small>and many more</small></div>
  </div><button class="primary" onclick="next()">Lanjut ke cerita kita</button></div></section>
  <section class="slide"><div class="frame"><div class="tag">THE STORY WE KEEP</div><h2>Our little <em>story</em></h2><p>Cerita kita tidak harus selalu sempurna. Cukup tentang dua orang yang bersedia mendengarkan, memahami, dan terus bertumbuh bersama.</p><div class="timeline">
   <div class="memory"><b>Awal yang sederhana</b><p>Dari hal-hal sederhana, kita mulai mengenal satu sama lain. Tanpa banyak disadari, percakapan kecil itu tumbuh menjadi sesuatu yang berarti.</p></div>
