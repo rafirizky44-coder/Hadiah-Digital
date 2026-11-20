@@ -114,7 +114,7 @@ p{font-size:clamp(14px,2.2vw,17px);line-height:1.85;max-width:630px;margin:15px 
 <div class="counter" id="counter">01 / 05</div><div class="nav" id="nav"><button class="arrow" onclick="prev()" aria-label="Slide sebelumnya">‹</button><div class="dots" id="dots"></div><button class="arrow" onclick="next()" aria-label="Slide berikutnya">›</button></div>
 <canvas class="confetti" id="confetti"></canvas>
 <script>
-const params=new URLSearchParams(location.search),recipient=params.get('untuk')||'Ayy';
+const params=new URLSearchParams(location.search),recipient=params.get('untuk')||'Ditta';
 document.querySelectorAll('.recipient').forEach(e=>e.textContent=recipient);
 const audio=document.getElementById('bgMusic'),musicBtn=document.getElementById('musicBtn');
 let playing=false;
