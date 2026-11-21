@@ -58,6 +58,45 @@ p{font-size:clamp(14px,2.2vw,17px);line-height:1.85;max-width:630px;margin:15px 
 .letter{max-width:650px;margin:20px auto;padding:24px;background:linear-gradient(145deg,#fff 0%,#fffaf7 100%);border:1px solid #efd6d8;border-radius:12px;text-align:left;line-height:1.95;font-family:Georgia,serif;box-shadow:0 12px 35px #9d49630d}
 .nav{position:fixed;z-index:25;bottom:17px;left:0;right:0;display:none;align-items:center;justify-content:center;gap:13px}.arrow{width:42px;height:42px;border-radius:50%;border:1px solid #dbaab5;background:#fffaf5;color:var(--deep);font-size:21px}.dots{display:flex;gap:7px}.dot{width:7px;height:7px;border:0;border-radius:50%;padding:0;background:#ddbfc4}.dot.on{background:#a7556c;transform:scale(1.4)}.counter{position:fixed;z-index:25;top:19px;left:18px;font:11px Arial,sans-serif;letter-spacing:.12em;color:#986b77;display:none}
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+
+/* Photo lightbox: klik foto untuk melihat ukuran besar */
+.photo-media img { cursor: zoom-in; }
+.photo-lightbox {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  padding: 56px 18px 64px;
+  background: rgba(28, 17, 22, .92);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .28s ease, visibility .28s ease;
+}
+.photo-lightbox.open {
+  opacity: 1; visibility: visible; pointer-events: auto;
+}
+.photo-lightbox img {
+  display: block; max-width: min(92vw, 1050px);
+  max-height: 82vh; width: auto; height: auto;
+  object-fit: contain; border-radius: 8px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+  transform: scale(.94);
+  transition: transform .28s ease;
+}
+.photo-lightbox.open img { transform: scale(1); }
+.lightbox-close {
+  position: absolute; top: 14px; right: 18px;
+  width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.5);
+  border-radius: 50%; background: rgba(255,255,255,.12);
+  color: white; font-size: 30px; line-height: 1;
+}
+.lightbox-hint {
+  position: absolute; bottom: 20px; left: 12px; right: 12px;
+  color: rgba(255,255,255,.78); text-align: center;
+  font: 12px Arial, sans-serif; letter-spacing: .03em;
+}
+@media (max-width: 600px) {
+  .photo-lightbox { padding: 58px 10px 58px; }
+  .photo-lightbox img { max-width: 96vw; max-height: 78vh; }
+}
+
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(max-width:600px){.slide{padding:58px 12px 78px}.frame{padding:29px 17px}.photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.photo{padding:6px 6px 11px}.photo small{font-size:9px}.music{top:10px;right:10px}.counter{top:18px;left:12px}}
 </style>
@@ -113,7 +152,50 @@ p{font-size:clamp(14px,2.2vw,17px);line-height:1.85;max-width:630px;margin:15px 
 </div>
 <div class="counter" id="counter">01 / 05</div><div class="nav" id="nav"><button class="arrow" onclick="prev()" aria-label="Slide sebelumnya">‹</button><div class="dots" id="dots"></div><button class="arrow" onclick="next()" aria-label="Slide berikutnya">›</button></div>
 <canvas class="confetti" id="confetti"></canvas>
+
+<div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true"
+     aria-label="Foto diperbesar" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" type="button"
+          aria-label="Tutup foto">&times;</button>
+  <img id="lightboxImage" alt="Foto kenangan diperbesar">
+  <div class="lightbox-hint">Klik area gelap atau tekan Esc untuk menutup</div>
+</div>
 <script>
+
+// Pembesar foto (lightbox). Berlaku untuk keenam foto dan tetap bekerja
+// meskipun gambar dimuat setelah halaman dibuka.
+const photoLightbox = document.getElementById('photoLightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function closePhotoLightbox() {
+  photoLightbox.classList.remove('open');
+  photoLightbox.setAttribute('aria-hidden', 'true');
+  lightboxImage.removeAttribute('src');
+  document.body.style.overflow = '';
+}
+
+document.querySelector('.photos')?.addEventListener('click', (event) => {
+  const image = event.target.closest('.photo-media img');
+  if (!image || !image.complete || !image.naturalWidth) return;
+
+  lightboxImage.src = image.currentSrc || image.src;
+  lightboxImage.alt = image.alt || 'Foto kenangan diperbesar';
+  photoLightbox.classList.add('open');
+  photoLightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+});
+
+lightboxClose.addEventListener('click', closePhotoLightbox);
+photoLightbox.addEventListener('click', (event) => {
+  if (event.target === photoLightbox) closePhotoLightbox();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && photoLightbox.classList.contains('open')) {
+    closePhotoLightbox();
+  }
+});
+
 const params=new URLSearchParams(location.search),recipient=params.get('untuk')||'Ditta';
 document.querySelectorAll('.recipient').forEach(e=>e.textContent=recipient);
 const audio=document.getElementById('bgMusic'),musicBtn=document.getElementById('musicBtn');
